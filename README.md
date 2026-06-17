@@ -1,13 +1,32 @@
-# husarion-ugv-autonomy
+# UGV Panther Autonomy
 
-A collection of packages containing autonomous functionalities for Husarion UGV vehicles.
+This repo is based on an official template containing a collection of packages containing autonomous functionalities for Husarion UGV vehicles.
 
-![autonomy-result](https://github-readme-figures.s3.eu-central-1.amazonaws.com/panther/husarion_ugv/husarion_ugv_autonomy.webp)
+## How to run
 
-## 🚀 Demo
+### 1. Requrements
 
-Below are two articles describing how to run the autonomy demo — one in simulation and the other on a physical robot.
-We recommend starting with the simulation demo, as it lets you explore the autonomy features without the need to configure or interact with the actual hardware.
+- **Just**: to simplify the execution of this project, [just](https://github.com/casey/just) is used. Install it with:
+```bash
+sudo dnf install just
+```
 
-- [Simulation Demo](./demo-sim.md)
-- [Hardware Demo](./demo-hw.md)
+### 2. Config
+
+Depending on the GPU edit [`compose.simulation.yaml`](./compose.simulation.yaml) file. Change config in servicies/gazebo.
+
+For Nvidia use:
+```yaml
+    <<: [*common-config, *gpu-nvidia]
+```
+
+For AMD use:
+```yaml
+    <<: [*common-config, *gpu-amd]
+```
+### 3. Run
+
+To run the simulation use:
+```bash
+just run-simulation
+```
