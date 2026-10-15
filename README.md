@@ -28,5 +28,5 @@ For AMD use:
 
 To run the simulation use:
 ```bash
-just run-simulation
+just start-simulation
 ```
